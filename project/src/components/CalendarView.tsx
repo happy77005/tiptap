@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import * as React from 'react';
 import MonthGrid from './MonthGrid';
 import { MonthData } from '../utils/calendar';
 
@@ -7,8 +7,9 @@ interface CalendarViewProps {
   months: MonthData[];
 }
 
-const CalendarView = forwardRef<HTMLDivElement, CalendarViewProps>(
-  ({ year, months }, ref) => {
+const CalendarView = React.forwardRef<HTMLDivElement, CalendarViewProps>(
+  (props, ref) => {
+    const { year, months } = props;
     return (
       <div ref={ref} className="calendar-view">
         <div className="year-title">{year}</div>
